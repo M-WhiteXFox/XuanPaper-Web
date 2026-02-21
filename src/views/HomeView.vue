@@ -1,385 +1,431 @@
 <template>
-  <!--  头-->
-  <!--  <div>-->
-  <!--    &lt;!&ndash; 头部 &ndash;&gt;-->
-  <!--    <div-->
-  <!--        ref="headerRef"-->
-  <!--        class="header"-->
-  <!--        :class="{ 'hidden': isHeaderHidden }"-->
-  <!--    >-->
-  <!--      &lt;!&ndash; 你的头部内容 &ndash;&gt;-->
-  <!--      <div-->
-  <!--          style="width: 100%;height: 90px;background-color: rgb(52, 52, 52); border-bottom: 1px solid #dcd3d3;display: flex;align-items: center;justify-content: center">-->
-  <!--        <div>-->
-  <!--          <a href="/">-->
-  <!--            <img style="width: 92px;height: 92px;background-color:  #343434;margin-right: 300px"-->
-  <!--                 src="imgs/home_img/R-C.png" alt="">-->
-  <!--          </a>-->
-  <!--        </div>-->
-
-  <!--        <div>-->
-  <!--          <el-link type="warning">-->
-  <!--            <router-link to="/" class="top-guide">首页</router-link>-->
-  <!--          </el-link>-->
-  <!--          <el-link type="warning">-->
-  <!--            <router-link to="/find" class="top-guide">发现</router-link>-->
-  <!--          </el-link>-->
-  <!--          <el-link type="warning">-->
-  <!--            <router-link to="/scenic_spot_introduction" class="top-guide">景点介绍</router-link>-->
-  <!--          </el-link>-->
-  <!--          <el-link type="warning">-->
-  <!--            <router-link to="/cultural_experience" class="top-guide">文化体验</router-link>-->
-  <!--          </el-link>-->
-  <!--          <el-link type="warning">-->
-  <!--            <router-link to="/travel_guide" class="top-guide">旅游指南</router-link>-->
-  <!--          </el-link>-->
-  <!--          <el-link type="warning">-->
-  <!--            <router-link to="/about_us" class="top-guide">关于我们</router-link>-->
-  <!--          </el-link>-->
-  <!--          <el-link type="warning">-->
-  <!--            <router-link to="/connect_us" class="top-guide">联系我们</router-link>-->
-  <!--          </el-link>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <div
-      style="width: 100%;height: 100px;background-color: rgb(255,255,255); border-bottom: 1px solid #dcd3d3;display: flex;align-items: center;justify-content: center">
-    <div>
-      <!--      <p style="margin-top: 20px">导航条图片位置</p>-->
-      <a href="/">
-        <img style="width: 92px;height: 92px;background-color:  #ffffff;margin-right: 170px"
-             src="imgs/home_img/logo.png"
-             alt="">
-      </a>
-
-    </div>
-
-    <div style="width: 700px;height: 100%;background-color: #ffffff;display: flex;align-items: center;gap: 25px;">
-
-      <div class="top-guide-1" style="border-right: 1px dashed rgba(170,160,160,0.8);">
-        <div class="top-guide-1-div-1">
-          <el-icon color="#f6661e" size="large">
-            <Comment/>
-          </el-icon>
-        </div>
-        <div class="top-guide-1-div-2">
-          <h3 class="top-h3">发送邮箱:</h3>
-          <p class="top-p">1528027618@163.com</p>
-        </div>
-      </div>
-
-      <div class="top-guide-1" style="border-right: 1px dashed rgba(170,160,160,0.8);">
-        <div class="top-guide-1-div-1">
-          <el-icon color="#f6661e" size="large">
-            <LocationFilled/>
-          </el-icon>
-        </div>
-        <div class="top-guide-1-div-2">
-          <h3 class="top-h3">电话:</h3>
-          <p class="top-p">028-12345678</p>
-        </div>
-      </div>
-
-      <div class="top-guide-1">
-        <div class="top-guide-1-div-1">
-          <el-icon color="#f6661e" size="large">
-            <Comment/>
-          </el-icon>
-        </div>
-        <div class="top-guide-1-div-2">
-          <h3 class="top-h3">地点:</h3>
-          <p class="top-p">光华大道二段601号</p>
+  <div class="home-container">
+    <header class="main-header" :class="{ 'is-scrolled': isScrolled }">
+      <div class="container">
+        <div class="logo-container">
+          <router-link to="/" class="logo-link">
+            <img src="/imgs/home_img/logo.png" alt="泾县非遗" class="logo-image" />
+            <span class="logo-text">泾县宣纸</span>
+          </router-link>
         </div>
 
-      </div>
+        <!-- Desktop Navigation -->
+        <div class="desktop-nav">
+          <el-menu
+              :default-active="$route.path"
+              class="main-nav"
+              mode="horizontal"
+              :ellipsis="false"
+              router
+          >
+            <el-menu-item index="/">首 页</el-menu-item>
+            <el-menu-item index="/travel_guide">旅游指南</el-menu-item>
+            <el-menu-item index="/cultural_experience">文化体验</el-menu-item>
+            <el-menu-item index="/about_us">关于我们</el-menu-item>
+            <el-menu-item index="/connect_us">联系我们</el-menu-item>
+          </el-menu>
 
-    </div>
+          <div class="action-container">
+            <el-icon size="20" class="ink-icon"><UserFilled/></el-icon>
+            <el-divider direction="vertical" class="custom-divider"/>
+            <router-link to="/connect_us">
+              <el-button class="stamp-btn" round>立即联系</el-button>
+            </router-link>
+          </div>
+        </div>
 
-
-  </div>
-
-
-  <div
-      style="width: 100%;height: 80px;background-color: rgb(0,0,0); border-bottom: 1px solid #dcd3d3;display: flex;align-items: center;justify-content: center">
-    <div style="width: 962px;height: 100%;background-color: rgb(0,0,0);display: flex;align-items: center;">
-      <div style="width: 837px;">
-
-        <router-link to="/" class="top-guide">首页</router-link>
-
-        <router-link to="/travel_guide" class="top-guide">旅游指南</router-link>
-
-        <router-link to="/cultural_experience" class="top-guide">文化体验</router-link>
-
-        <router-link to="/about_us" class="top-guide">关于我们</router-link>
-
-        <router-link to="/connect_us" class="top-guide">联系我们</router-link>
-
-      </div>
-      <div style="width: 200px;height: 100%;background-color: #000000;display: flex;align-items: center;">
-        <el-icon size="large" color="#f6661e">
-          <UserFilled/>
-        </el-icon>
-        <el-divider direction="vertical" border-style="dashed"/>
-        <router-link to="/connect_us">
-          <el-button color="#f6661e" :dark="isDark" round style="width: 110px;height: 35px;color: white;">
-            立即联系我们
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+          <el-button class="hamburger-btn" @click="drawerVisible = true" text>
+            <el-icon size="24"><Menu /></el-icon>
           </el-button>
-        </router-link>
+        </div>
 
       </div>
+    </header>
 
+    <!-- Mobile Drawer -->
+    <el-drawer v-model="drawerVisible" title="导航" direction="rtl" size="280px" class="mobile-drawer">
+      <el-menu
+          :default-active="$route.path"
+          class="mobile-menu"
+          @select="drawerVisible = false"
+          router
+      >
+        <el-menu-item index="/">首 页</el-menu-item>
+        <el-menu-item index="/travel_guide">旅游指南</el-menu-item>
+        <el-menu-item index="/cultural_experience">文化体验</el-menu-item>
+        <el-menu-item index="/about_us">关于我们</el-menu-item>
+        <el-menu-item index="/connect_us">联系我们</el-menu-item>
+      </el-menu>
+    </el-drawer>
 
-    </div>
+    <main class="main-content">
+      <router-view/>
+    </main>
 
-
-  </div>
-
-  <!--  身-->
-  <router-view/>
-
-  <!--  脚-->
-  <div style="width: 100%;height: 420px;">
-    <div style="width: 100%;height: 350px;background-color:#000a1f;display: flex;justify-content: center">
-
-      <div
-          style="width: 1000px;height: 50px;background-color: #000a1f;margin-top: 50px;display: flex;align-items: center;justify-content: center">
-
-        <div class="bottom-top">
-          <h6>联系我们</h6>
-        </div>
-
-        <div class="bottom-top">
-          <h6>版权说明</h6>
-        </div>
-
-        <div class="bottom-top">
-          <h6>友情链接</h6>
-        </div>
-
-        <div class="bottom-top">
-          <h6>订阅我们</h6>
-        </div>
-      </div>
-
-      <div
-          style="width: 1000px;height: 180px;position: absolute;background-color: #000a1f;margin-top: 100px;display: flex">
-        <div class="bottom-middle" style="background-color: #000a1f">
-          <p class="bottom-fourOnOne">
-            <el-icon>
-              <PhoneFilled/>
-            </el-icon>
-            :19722768288
-          </p>
-          <p class="bottom-fourOnOne">
-            <el-icon>
-              <el-icon>
-                <Comment/>
-              </el-icon>
-            </el-icon>
-            :1528027618@163.com
-          </p>
-          <p class="bottom-fourOnOne">
-            <el-icon>
-              <LocationFilled/>
-            </el-icon>
-            :光华大道二段601号附1号国际非物质文化遗产博览园内
-          </p>
-        </div>
-
-        <div class="bottom-middle" style="background-color: #000a1f">
-          <p class="bottom-fourOnOne">
-            本网站所有内容（包括但不限于文字、图片、音视频资料、网页设计等），均属于[网站名称]或其合作单位所有，受《中华人民共和国著作权法》及相关国际版权条约的保护。
-            未经版权所有者书面许可，任何单位或个人不得以任何形式复制、传播、改编、展示或用于其他商业用途。如有侵权行为，请及时联系我们删除或更正。
-            <br>联系邮箱：copyright@example.com
-          </p>
-        </div>
-
-        <div class="bottom-middle" style="background-color: #000a1f;">
-          <p class="bottom-fourOnOne">
-            本网站致力于非物质文化遗产的保护与传播，以下为与我们合作或推荐的相关机构与平台，欢迎访问了解更多非遗相关内容。</p>
-          <ul style="padding: 0">
-            <li class="bottom-ul-li"><span>四川非遗:</span> <a href="https://ichsc.tsichuan.com/">
-              https://ichsc.tsichuan.com/</a></li>
-            <li class="bottom-ul-li"><span>中国非物质文化遗产网:</span> <a href=" https://www.ihchina.cn/">
-              https://www.ihchina.cn/</a></li>
-            <li class="bottom-ul-li"><span>四川省文化和旅游厅:</span> <a href="https://wlt.sc.gov.cn/">
-              https://wlt.sc.gov.cn/</a></li>
-            <li class="bottom-ul-li"><span>成都国际非遗博览园:</span> <a href="https://www.ichfunny.com/">
-              https://www.ichfunny.com/</a></li>
-          </ul>
-
-        </div>
-
-        <div class="bottom-middle" style="background-color: #000a1f;">
-          <div style="width: 227px;height: 140px;display: flex;">
-            <div style="width: 113.5px;height: 140px;background-color: #000a1f;text-align: center">
-              <img style="height: 95px;width: 95px" src="/imgs/home_img/footer-wx-qrcode.png" alt="">
-              <p style="margin: 0;color: white;font-size: 12px">四川非遗微信</p>
+    <footer class="main-footer">
+      <div class="container footer-top">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <h4 class="footer-title">联系我们</h4>
+            <div class="footer-contact">
+              <p class="footer-text"><el-icon><PhoneFilled/></el-icon>0563-5022666</p>
+              <p class="footer-text"><el-icon><Comment/></el-icon>jingxianfeiyi@163.com</p>
+              <p class="footer-text"><el-icon><LocationFilled/></el-icon>安徽省宣城市泾县泾川镇文化路88号</p>
             </div>
-
-            <div style="width: 113.5px;height: 140px;background-color: #000a1f;text-align: center">
-              <img style="height: 95px;width: 95px" src="/imgs/home_img/footer-wb-qrcode.png" alt="">
-              <p style="margin: 0;color: white;font-size: 12px">四川非遗微博</p>
-            </div>
-
-            <div>
-
-            </div>
-
           </div>
 
-        </div>
+          <div class="footer-section">
+            <h4 class="footer-title">版权说明</h4>
+            <p class="footer-text copyright-desc">
+              本网站内容受《著作权法》保护。记录与传承泾县非遗文化，未经书面许可，不得擅自用于商业用途。如有侵权，请及时联系邮箱：copyright@example.com
+            </p>
+          </div>
 
+          <div class="footer-section">
+            <h4 class="footer-title">友情链接</h4>
+            <ul class="footer-links">
+              <li><a href="http://www.ahjx.gov.cn/" target="_blank">泾县人民政府</a></li>
+              <li><a href="https://www.ihchina.cn/" target="_blank">中国非物质文化遗产网</a></li>
+              <li><a href="https://www.zgxzsc.com/" target="_blank">中国宣纸博物馆</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4 class="footer-title">关注我们</h4>
+            <div class="social-qrcodes">
+              <div class="qrcode-item">
+                <img src="/imgs/home_img/footer-wx-qrcode.png" alt="微信" class="qrcode-image"/>
+                <p>微信公众号</p>
+              </div>
+              <div class="qrcode-item">
+                <img src="/imgs/home_img/footer-wb-qrcode.png" alt="微博" class="qrcode-image"/>
+                <p>官方微博</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-    </div>
-    <div style="width: 100%;height: 70px;background-color: #ffffff;text-align: center;">
-      <p style="margin: 0;padding: 0;line-height: 70px;color: #000000;font-size: 17px;font-weight: bold;">Copyright @
-        2025
-        ALL Rights Reserved. 四川非遗文化</p>
-    </div>
-
-
+      <div class="footer-bottom">
+        <div class="container">
+          <p>Copyright © 2026 泾县非遗文化 All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
   </div>
-
-
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+import { Comment, LocationFilled, UserFilled, PhoneFilled, Menu } from "@element-plus/icons-vue";
 
-// import {ref, onMounted, onUnmounted} from 'vue';
-//
-// const headerRef = ref(null);
-// const isHeaderHidden = ref(false);
-// let lastScrollTop = 0;
-//
-// const handleScroll = () => {
-//   const scrollTop = window.scrollY || document.documentElement.scrollTop;
-//
-//   if (scrollTop > lastScrollTop) {
-//     // 向下滑动，隐藏头部
-//     isHeaderHidden.value = true;
-//   } else if (scrollTop <= 0) {
-//     // 向上滑动并且滑到了顶部，显示头部
-//     isHeaderHidden.value = false;
-//   }
-//   // 其他情况（向上滑但没到顶部）不改变 isHeaderHidden 的值
-//   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-// };
-//
-// onMounted(() => {
-//   window.addEventListener('scroll', handleScroll);
-// });
-//
-// onUnmounted(() => {
-//   window.removeEventListener('scroll', handleScroll);
-// });
+const drawerVisible = ref(false);
+const isScrolled = ref(false);
 
-import {Comment, Location} from "@element-plus/icons-vue";
+const handleScroll = () => {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  isScrolled.value = scrollTop > 50;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
-<style>
-/* 重置默认边距和内边距 */
-html, body {
-  margin: 0;
-  padding: 0;
-  background-color: #f2f2f4;
+<style scoped>
+.home-container {
+  min-height: 100vh;
+  background-color: var(--paper-bg);
+  font-family: 'PingFang SC', 'Microsoft YaHei', serif;
 }
 
-
-.top-guide {
-  padding: 0 20px;
-  margin: 0;
-  color: #ffffff;
-  font-size: 18px;
-  text-decoration: none;
-}
-
-.top-guide:hover {
-  color: #f6661e; /* 悬停时字体颜色变为红色（你可以换成任意颜色） */
-}
-
-.top-guide-1 {
-  width: 240px;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-}
-
-.top-guide-1-div-1 {
-  width: 50px;
-  height: 50px;
-  background-color: rgb(245 245 245 / 86%);
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.top-guide-1-div-2 {
-  margin-left: 10px;
-}
-
-.bottom-top {
-  width: 222px;
-  height: 32px;
-  background-color: #000a1f;
-  margin-right: 28px;
-  border-bottom: 1px solid #dcd3d3;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-.bottom-middle {
-  width: 227px;
-  height: 180px;
-  margin-right: 23px;
-}
-
-.bottom-fourOnOne {
-  padding: 0;
-  color: #A6A6A6;
-  font-size: 13px;
-  margin-bottom: 13px;
-}
-
-.bottom-ul-li {
-  color: #A6A6A6;
-  font-size: 10px;
-  list-style-type: none;
-}
-
-h6 {
-  font-size: 17px;
-  color: white;
-}
-
-.top-p {
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  color: #A6A6A6;
-}
-
-h3 {
-  margin: 0;
-  color: #3d404c;
-}
-
-.header {
-  position: fixed;
+/* Header */
+.main-header {
+  background: rgba(253, 250, 245, 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(43, 43, 43, 0.08);
+  position: sticky;
   top: 0;
-  left: 0;
+  z-index: 1000;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s ease-in-out;
+}
+
+/* 滚动状态下的样式 */
+.main-header.is-scrolled {
+  background: rgba(43, 43, 43, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.container {
   width: 100%;
-  transition: transform 0.3s ease-in-out;
-  z-index: 9999;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.header.hidden {
-  transform: translateY(-100%);
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: color 0.4s ease-in-out;
 }
 
+.logo-link,
+.logo-text {
+  color: var(--ink-main);
+  transition: color 0.4s ease-in-out;
+}
 
+.main-header.is-scrolled .logo-link,
+.main-header.is-scrolled .logo-text {
+  color: #ffffff;
+}
+
+.logo-image {
+  height: 44px;
+  width: auto;
+  transition: transform 0.4s ease;
+}
+
+.logo-image:hover {
+  transform: rotate(-3deg) scale(1.05);
+}
+
+.logo-text {
+  font-family: '华文新魏', 'STXinwei', serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.main-nav.el-menu--horizontal {
+  background-color: transparent;
+  border-bottom: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.main-nav .el-menu-item {
+  font-size: 1.05rem;
+  color: var(--ink-light);
+  background-color: transparent !important;
+  padding: 0 8px;
+  margin: 0 12px;
+  height: auto;
+  line-height: normal;
+  border-bottom: 2px solid transparent;
+  transition: color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+}
+
+.main-header.is-scrolled .main-nav .el-menu-item {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.main-nav .el-menu-item:hover {
+  color: var(--ink-main);
+}
+
+.main-header.is-scrolled .main-nav .el-menu-item:hover {
+  color: #ffffff;
+}
+
+.main-nav .el-menu-item.is-active {
+  color: var(--ink-main);
+  font-weight: 600;
+  border-bottom-color: var(--stamp-red);
+}
+
+.main-header.is-scrolled .main-nav .el-menu-item.is-active {
+  color: #ffffff;
+}
+
+.action-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ink-icon {
+  color: var(--ink-main);
+  transition: color 0.4s ease-in-out;
+}
+
+.main-header.is-scrolled .ink-icon {
+  color: #ffffff;
+}
+
+.ink-icon:hover {
+  color: var(--stamp-red);
+}
+
+.custom-divider {
+  border-color: rgba(43, 43, 43, 0.2);
+  transition: border-color 0.4s ease-in-out;
+}
+
+.main-header.is-scrolled .custom-divider {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.stamp-btn {
+  background-color: transparent;
+  border: 1px solid var(--stamp-red);
+  color: var(--stamp-red);
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.4s ease-in-out;
+}
+
+.main-header.is-scrolled .stamp-btn {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.stamp-btn:hover {
+  background-color: var(--stamp-red);
+  color: white;
+  box-shadow: 2px 4px 12px rgba(184, 41, 47, 0.2);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+}
+
+.hamburger-btn {
+  color: var(--ink-main);
+  transition: color 0.4s ease-in-out;
+}
+
+.main-header.is-scrolled .hamburger-btn {
+  color: #ffffff;
+}
+
+.mobile-drawer .mobile-menu {
+  border-right: none;
+}
+
+.mobile-drawer .el-menu-item {
+  font-size: 1rem;
+  padding: 16px 24px;
+}
+
+.mobile-drawer .el-menu-item.is-active {
+  color: var(--stamp-red);
+  font-weight: 600;
+}
+
+/* Footer */
+.main-footer {
+  background-color: var(--dark-bg);
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 80px;
+}
+
+.footer-top {
+  padding: 60px 24px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+}
+
+.footer-title {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 24px;
+  font-family: '华文新魏', 'STXinwei', serif;
+  letter-spacing: 1px;
+}
+
+.footer-text, .footer-links a {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-text {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.copyright-desc {
+  text-align: justify;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a:hover {
+  color: var(--stamp-red);
+}
+
+.social-qrcodes {
+  display: flex;
+  gap: 20px;
+}
+
+.qrcode-item {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.qrcode-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background: white;
+  padding: 4px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Breakpoint */
+@media (max-width: 992px) { /* Changed to 992px for better tablet handling */
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+}
 </style>

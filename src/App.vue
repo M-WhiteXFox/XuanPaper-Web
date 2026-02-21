@@ -7,6 +7,30 @@
 </script>
 
 <style>
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* 强制干掉横向滚动条 */
+}
+
+/* 针对 WebKit 浏览器 (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  display: none; 
+  width: 0;
+  background: transparent;
+}
+
+/* 针对 Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* 针对 IE / Edge 老版本 */
+body {
+  -ms-overflow-style: none;
+}
 .el-main {
   --el-main-padding: 0px !important;
   padding: var(--el-main-padding);

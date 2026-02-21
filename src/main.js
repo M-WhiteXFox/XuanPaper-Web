@@ -5,6 +5,7 @@ import store from './store'
 //引入Element框架相关内容
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import './assets/styles/theme.css'
 //引入Element图标相关
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 

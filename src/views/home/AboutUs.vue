@@ -29,12 +29,12 @@
   <div style="width: 100%;height: auto; display: flex;justify-content: center;background-color: #f8f8f8;padding: 80px 0;">
     <div style="width: 1500px;height: 100%;display: flex;gap: 60px;">
       <div style="flex: 1;">
-        <h2 style="font-size: 36px;color: #784444;margin-bottom: 30px;">公司简介</h2>
+        <h2 style="font-size: 36px;color: #784444;margin-bottom: 30px;">关于我们</h2>
         <p style="font-size: 18px;line-height: 1.8;color: #666;">
-          我们是一家专注于旅游服务的专业公司，成立于2010年，致力于为全球旅行者提供最优质的旅游体验。我们的团队由经验丰富的旅游专家组成，他们精通各地文化、历史和风土人情。
+          我们是一家专注于泾县非遗文化传承与推广的文化机构，致力于让更多人了解和体验泾县丰富的非物质文化遗产。泾县被誉为"中国宣纸之乡"，拥有宣纸、宣笔、徽墨等众多国家级非遗项目。
         </p>
         <p style="font-size: 18px;line-height: 1.8;color: #666;margin-top: 20px;">
-          多年来，我们已成功为数万名旅客提供了个性化的旅游方案，覆盖全球50多个国家和地区的300多个旅游目的地。我们的使命是让每一次旅行都成为难忘的回忆。
+          多年来，我们致力于非遗文化的保护、传承与创新，通过文化展示、体验活动、研学旅行等多种形式，让传统文化焕发新的生机。我们的使命是让每一位来访者都能感受到泾县非遗文化的独特魅力。
         </p>
         <el-button type="warning" size="large" style="margin-top: 40px;height: 50px;width: 200px;font-size: 18px;">
           了解更多
@@ -60,7 +60,7 @@
             </div>
           </template>
           <p style="font-size: 16px;line-height: 1.7;color: #666;">
-            我们拥有10年以上经验的旅游专家团队，精通多国语言，深入了解各地文化习俗，能为您的旅行提供最专业的建议和服务。
+            我们拥有10年以上非遗文化研究与推广经验的专家团队，深入了解泾县的文化遗产，能为您提供最专业的文化体验服务。
           </p>
         </el-card>
 
@@ -72,7 +72,7 @@
             </div>
           </template>
           <p style="font-size: 16px;line-height: 1.7;color: #666;">
-            我们提供完全个性化的旅游方案，根据您的兴趣、预算和时间安排量身定制，确保每一次旅行都独一无二。
+            我们提供个性化的非遗文化体验方案，根据您的兴趣和需求量身定制，确保每一次体验都独一无二。
           </p>
         </el-card>
 
@@ -84,7 +84,7 @@
             </div>
           </template>
           <p style="font-size: 16px;line-height: 1.7;color: #666;">
-            我们与全球优质酒店、航空公司和地接社建立长期合作关系，严格筛选合作伙伴，确保您的旅行品质。
+            我们与泾县各非遗传承基地、文化场馆建立长期合作关系，严格把控服务质量，确保您的文化体验品质。
           </p>
         </el-card>
       </div>
@@ -146,17 +146,17 @@
 
             <div style="margin-top: 30px;display: flex;align-items: center;gap: 15px;margin-bottom: 25px;">
               <el-icon size="24px" color="#F6661EFF"><Location /></el-icon>
-              <span style="font-size: 16px;">:光华大道二段601号附1号国际非物质文化遗产博览园内</span>
+              <span style="font-size: 16px;">:安徽省宣城市泾县泾川镇文化路88号</span>
             </div>
 
             <div style="display: flex;align-items: center;gap: 15px;margin-bottom: 25px;">
               <el-icon size="24px" color="#F6661EFF"><Phone /></el-icon>
-              <span style="font-size: 16px;">400-888-9999</span>
+              <span style="font-size: 16px;">0563-5022666</span>
             </div>
 
             <div style="display: flex;align-items: center;gap: 15px;margin-bottom: 25px;">
               <el-icon size="24px" color="#F6661EFF"><Message /></el-icon>
-              <span style="font-size: 16px;">example123.com</span>
+              <span style="font-size: 16px;">jingxianfeiyi@163.com</span>
             </div>
 
             <div style="display: flex;align-items: center;gap: 15px;margin-bottom: 25px;">
@@ -208,30 +208,30 @@ import {
 const teamMembers = ref([
   {
     id: 1,
-    name: '张明',
-    position: '创始人兼CEO',
-    description: '旅游行业资深专家，拥有20年旅游规划经验，曾为多位名人设计私人旅行方案。',
+    name: '李文华',
+    position: '创始人兼馆长',
+    description: '非遗文化研究专家，拥有20年文化遗产保护经验，致力于泾县非遗文化的传承与推广。',
     avatar: 'imgs/about-img/user.jpg'
   },
   {
     id: 2,
-    name: '李华',
-    position: '旅游规划总监',
-    description: '精通欧洲和东南亚旅游线路，擅长文化深度游设计，能说5国语言。',
+    name: '王雪梅',
+    position: '文化体验总监',
+    description: '精通宣纸、宣笔等非遗技艺，擅长设计沉浸式文化体验项目，让传统文化触手可及。',
     avatar: 'imgs/about-img/user.jpg'
   },
   {
     id: 3,
-    name: '王芳',
-    position: '客户服务经理',
-    description: '10年客户服务经验，耐心细致，致力于为每位客户提供最贴心的服务。',
+    name: '张建国',
+    position: '研学项目经理',
+    description: '10年研学教育经验，专注于非遗文化教育课程开发，深受学校和家长好评。',
     avatar: 'imgs/about-img/user.jpg'
   },
   {
     id: 4,
-    name: '赵强',
-    position: '市场营销总监',
-    description: '数字营销专家，擅长旅游品牌推广和社交媒体营销，让更多人发现旅行的美好。',
+    name: '刘小燕',
+    position: '市场推广总监',
+    description: '文化传播专家，擅长非遗文化品牌推广和新媒体营销，让更多人了解泾县非遗。',
     avatar: 'imgs/about-img/user.jpg'
   }
 ])

@@ -1,60 +1,48 @@
-<template>
+﻿<template>
 
   <!--  首页轮播图-->
   <div class="carousel-wrapper">
-    <el-carousel :interval="5000" arrow="hover" class="full-width-carousel">
-      <el-carousel-item v-for="item in carouselImgArr" :key="item.id" class="carousel-item">
+    <el-carousel height="780px" :interval="5000" arrow="hover" class="full-width-carousel">
+      <el-carousel-item v-for="item in carouselImgArr" :key="item.id">
         <img :src="item.imgUrl" alt="" class="carousel-image"/>
       </el-carousel-item>
     </el-carousel>
-
-    <div style="width: 760px;height: 280px;position: absolute">
-      <p style="text-align: center;font-size: 22px; font-weight: 700; color: orangered;margin: 0">Sichuan intangible
-        cultural heritage</p>
-      <h1 style="text-align: center;font-size: 80px; font-family: '华文新魏',serif; font-weight: 700;color: #ffffff;text-transform: capitalize;margin: 0">
-        四川非遗
-      </h1>
-      <p style="text-align: center;color: #ffffff;font-size: 18px;font-weight: 400;margin: 0;padding: 20px">
-        四川，这片历史悠久、文化灿烂的土地，孕育了丰富多彩的非物质文化遗产。这些非遗项目不仅是
-        四川人民智慧的结晶，也是中华民族文化宝库中的瑰宝。
-      </p>
-    </div>
   </div>
 
 
-  <!--  文化代表-->
-  <div style="width: 100%;height: auto;text-align: center;display: flex;justify-content: center;margin-top: 50px;">
-    <div style="width: 1600px;height: 100%;background-color: #f2f2f4">
-      <p style="font-size: 50px;font-weight: bold;margin: 0;padding: 0;color:  #8b4513;">文化代表</p>
-      <p style="font-size: 20px;font-weight: bold;margin: 0;padding: 0;color:  #8b4513;">Cultural representation</p>
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr);margin: 48px 0 0 80px;gap: 35px;">
-        <el-card style="width: 283px;height: 430px;" v-for="item in newsImgArr" :key="item">
-          <div style="width: auto;height: 320px;background-color: #ffffff">
-            <img :src="item.imgUrl" alt="" style="width: 250px;height: 170px;border-radius: 8px;  /*添加圆角*/">
-            <h3 style="float: left;margin: 0;">{{ item.name }}:</h3>
-            <p style="font-size: 14px;margin-top: 35px">{{ item.content }}</p>
-          </div>
-          <template #footer>
-            <div
-                style="width: 230px;height: 35px;background-color: rgba(255,255,255,0);display: flex;gap: 20px;justify-content: center;align-items: center">
-              <div>
-                ❤️:{{ item.likeNum }}
-              </div>
-              <div>
-                👁️:{{ item.viewNum }}
-              </div>
-
-              <el-button style="width: 80px;height: 30px;" size="small" type="warning" round>了解更多</el-button>
+  <!-- 文化代表 -->
+  <section class="cultural-reps-section">
+    <div class="container">
+      <h2 class="section-title">文化代表</h2>
+      <p class="section-subtitle">Cultural Representation</p>
+      <el-row :gutter="30" class="reps-grid">
+        <el-col
+            v-for="item in newsImgArr"
+            :key="item.id"
+            :xs="24" :sm="12" :md="8" :lg="6"
+        >
+          <el-card class="rep-card" shadow="hover">
+            <div class="rep-card-image-container">
+              <img :src="item.imgUrl" :alt="item.name" class="rep-card-image">
             </div>
-          </template>
-
-        </el-card>
-
-      </div>
-
+            <div class="el-card__body">
+              <h3 class="rep-card-title">{{ item.name }}</h3>
+              <p class="rep-card-content">{{ item.content }}</p>
+            </div>
+            <template #footer>
+              <div class="rep-card-footer">
+              <span class="footer-stats">
+                <span>❤️ {{ item.likeNum }}</span>
+                <span>👁️ {{ item.viewNum }}</span>
+              </span>
+                <el-button type="warning" size="small" round plain>了解更多</el-button>
+              </div>
+            </template>
+          </el-card>
+        </el-col>
+      </el-row>
     </div>
-
-  </div>
+  </section>
 
   <!-- 重要人物 -->
   <div
@@ -174,7 +162,7 @@
             style="background: linear-gradient(135deg, #8b4513, #d2691e); color: white; padding: 40px; border-radius: 8px;">
           <h2 style="font-size: 28px; margin-bottom: 20px;">加入非遗保护行动</h2>
           <p style="font-size: 18px; margin-bottom: 30px;">
-            每个人都可以成为非遗守护者，通过参观、学习、传播等方式支持四川非遗传承</p>
+            每个人都可以成为非遗守护者，通过参观、学习、传播等方式支持泾县非遗传承</p>
           <el-button type="warning" size="large" style="width: 200px; height: 50px; font-size: 18px;">参与保护行动
           </el-button>
         </div>
@@ -204,172 +192,174 @@ const handleCarouselChange = (index) => {
 const carouselImgArr = [
   {
     id: 1,
-    imgUrl: "imgs/index-img/index-carousel-4.png",
+    imgUrl: "imgs/index-img/index-carousel-4.jpg",
 
   },
   {
     id: 2,
-    imgUrl: "imgs/index-img/index-carousel-2.png",
+    imgUrl: "imgs/index-img/index-carousel-2.jpg",
 
   },
   {
     id: 3,
-    imgUrl: "imgs/index-img/index-carousel-3.png",
+    imgUrl: "imgs/index-img/index-carousel-3.jpg",
   },
   {
     id: 4,
-    imgUrl: "imgs/index-img/index-carousel-1.png",
+    imgUrl: "imgs/index-img/index-carousel-1.jpg",
   },
 ]
 const newsImgArr = [
   {
     id: 1,
-    name: "川剧",
+    name: "宣纸制作技艺",
     parentId : 1,
     imgUrl: "imgs/index-img/index-news-chuanju.png",
-    likeNum: 659,
-    viewNum: 123,
-    content: "川剧是中国戏曲的重要组成部分之一，以其独特的变脸、吐火等绝技闻名于世。它不仅融合了高腔、昆腔、胡琴、弹戏及灯调等多种声腔，还展现了深厚的文化底蕴和艺术魅力。"
+    likeNum: 859,
+    viewNum: 523,
+    content: "宣纸是中国文房四宝之一，被誉为'纸中之王'。泾县宣纸制作技艺被列入人类非物质文化遗产代表作名录，是世界造纸技术的杰出代表。"
   },
   {
     id: 2,
-    name: "羌族刺绣",
+    name: "宣笔制作技艺",
     parentId : 1,
     imgUrl: "imgs/index-img/index-news-cixiu.png",
-    likeNum: 354,
-    viewNum: 917,
-    content: "羌族是中国最古老的民族之一，其刺绣艺术承载着羌族的历史记忆和文化认同。羌族刺绣图案古朴大方，色彩对比强烈，极具观赏价值。"
+    likeNum: 454,
+    viewNum: 317,
+    content: "宣笔是中国四大名笔之一，以选料精良、制作精细著称。泾县宣笔具有'尖、齐、圆、健'四德，是书画家的首选工具。"
   },
   {
     id: 3,
-    name: "蜀绣 ",
+    name: "徽墨制作技艺",
     parentId : 1,
     imgUrl: "imgs/index-img/index-news-shuxiu.png",
-    likeNum: 189,
-    viewNum: 278,
-    content: "蜀绣与苏绣、湘绣、粤绣并称为中国四大名绣。蜀绣以针法细腻、色彩鲜艳而著称，图案多取材于自然界的花鸟鱼虫，具有浓郁的地方特色。"
+    likeNum: 389,
+    viewNum: 478,
+    content: "徽墨是中国制墨技艺的杰出代表，以'落纸如漆，万载存真'著称。泾县徽墨制作技艺精湛，传承千年，是书画艺术的重要载体。"
   },
   {
     id: 4,
-    name: "竹编工艺",
+    name: "木梳制作技艺",
     parentId : 1,
     imgUrl: "imgs/index-img/index-news-zhubian.png",
-    likeNum: 610,
-    viewNum: 419,
-    content: "四川的竹编技艺精湛，产品种类繁多，从日常生活用品到精美的工艺品应有尽有。这项技艺体现了人们对美好生活的向往和追求，同时也展示了竹编艺人的高超技艺。"
+    likeNum: 310,
+    viewNum: 219,
+    content: "泾县木梳制作技艺历史悠久，选用优质黄杨木、枣木等材料，经过数十道工序精心制作，具有养发护发的功效。"
   },
   {
     id: 5,
-    name: "木偶戏",
+    name: "皖南花鼓戏",
     parentId : 1,
     imgUrl: "imgs/index-img/index-news-muouxi.png",
     likeNum: 862,
     viewNum: 918,
-    content: "木偶戏是用木偶来表演故事的戏剧。汉族传统艺术之一，是闽南语系的传统地方戏剧之一， [10]在中国古代又称“傀儡戏”。"
+    content: "皖南花鼓戏是安徽省地方传统戏剧，起源于泾县一带，以其独特的唱腔和丰富的表演形式深受群众喜爱。 [10]在中国古代又称“傀儡戏”。"
   },
   {
     id: 6,
-    name: "银花丝",
+    name: "宣砚制作技艺",
     parentId : 1,
     imgUrl: "imgs/index-img/index-news-yinhuasi.png",
     likeNum: 354,
     viewNum: 917,
-    content: "银花丝，是成都最具特色的汉族传统金银工艺品，这项金属工艺迄今已有1700多年的历史，在中国明清时就已经达到过极高的艺术水平，与蜀绣、竹编、漆器一起更号称成都的“四大名旦”。"
+    content: "宣砚是中国名砚之一，泾县宣砚以其石质细腻、发墨如油而著称，与宣纸、宣笔、徽墨并称文房四宝。"
   },
   {
     id: 7,
-    name: "自贡灯会 ",
+    name: "泾县剪纸",
     parentId : 1,
     imgUrl: "imgs/index-img/index-news-zigongdenghui.png",
-    likeNum: 189,
-    viewNum: 278,
-    content: "灯会，四川省自贡市地方传统民俗，国家级非物质文化遗产之一。自贡元宵灯彩主要包括工艺灯、座灯、组灯等几种。多表现民间传统、古典名著、神话故事等题材内容，具有大型、群体、联动的特点。"
+    likeNum: 289,
+    viewNum: 378,
+    content: "泾县剪纸是皖南地区传统民间艺术，图案精美、刀法细腻，内容多取材于民间故事、花鸟鱼虫，具有浓郁的地方特色。"
   },
   {
     id: 8,
-    name: "四川皮影戏",
+    name: "泾县民歌",
     parentId : 1,
     imgUrl: "imgs/index-img/index-news-piyin.png",
-    likeNum: 610,
-    viewNum: 419,
-    content: "从明末清初至乾隆末，四川原有的皮影同外来的皮影经过整整一个半世纪的撞击、交流和融合，到清嘉庆以后，逐渐形成三类皮影戏，流传至今。主要包括土皮影、广皮影和阆中皮影戏三类。"
+    likeNum: 410,
+    viewNum: 319,
+    content: "泾县民歌是皖南地区传统音乐的代表，曲调优美、内容丰富，反映了泾县人民的生产生活和精神追求，是地方文化的重要组成部分。"
   },
 
 ]
 const importantPersonArr = [
   {
     id: 1,
-    name: "陈智林",
-    age: 61,
+    name: "曹光华",
+    age: 68,
     imgUrl: "imgs/index-img/index-importPerson-1.jpg",
-    Introduction: "川剧”传承人、四川省文联主席",
-    achievement: "先后主演《托国入吴》《峨眉山月》《和亲记》《望娘滩》《巴山秀才》等剧目，展示了他的艺术功力和才华，四川省中青年专家突出贡献奖，第四、第八届中国戏剧节优秀表演奖，现任第十届全国人大代表、省川剧院院长。他从艺10年，在名师指导下，加上自己的刻苦钻研，多次在省、市演出比赛中夺魁。1988年，他赴香港演出的《芙蓉花仙》引起轰动，被誉为\"川剧瑰宝\"。",
+    Introduction: "宣纸制作技艺国家级传承人",
+    achievement: "曹光华是中国宣纸股份有限公司的技术骨干，从事宣纸制作40余年，精通宣纸生产的各道工序，尤其擅长捞纸技艺。他参与研制的多种特种宣纸获得国家专利，为宣纸制作技艺的传承与创新做出了重要贡献。",
 
   },
   {
     id: 2,
-    name: "郝淑萍",
-    age: 76,
+    name: "邢春荣",
+    age: 62,
     imgUrl: "imgs/index-img/index-importPerson-2.jpg",
-    Introduction: "国家级非物质文化遗产传承人",
+    Introduction: "宣纸制作技艺国家级传承人",
+    achievement: "邢春荣是泾县宣纸制作技艺的杰出代表，长期从事宣纸生产和技艺传承工作。她精通晒纸、剪纸等核心工艺，培养了大批青年技术人才，为宣纸文化的保护和传承做出了突出贡献。",
     achievement: "1959年9月进入成都工艺美术技校蜀绣班学习，师从乔子平、彭永兴、肖福兴、毛成武、胡云生、张万清、黄炳成、刘绍云等，因聪慧伶俐、勤奋好学深得老师赏识并得真传。几十年来，她积累了丰富的实践经验和理论知识，具有很高的专业技术，绣制了不少优秀作品。",
   },
   {
     id: 3,
-    name: "陈云华",
-    age: 76,
+    name: "周美洪",
+    age: 70,
     imgUrl: "imgs/index-img/index-importPerson-3.jpg",
-    Introduction: "中国工艺美术大师",
+    Introduction: "宣笔制作技艺省级传承人",
+    achievement: "周美洪是泾县宣笔制作的代表性人物，从事宣笔制作50余年，精通选毫、配料、制杆等全部工序。他制作的宣笔具有尖、齐、圆、健四德，深受书画家青睐，多次在全国工艺美术展览中获奖。",
     achievement: "陈云华从事竹编艺术的开发、研究四十余载，由他独创的\"单色双面隐形\"竹编艺术享誉海内外，被誉为精品中的精品，艺术中的艺术。1984年他将竹编书画艺术由最初的坐标编织法改进深化为看图编织法，为青神竹编的发展作出了杰出的贡献 。",
   },
   {
     id: 4,
-    name: "杨华珍",
-    age: 63,
+    name: "汪爱军",
+    age: 55,
     imgUrl: "imgs/index-img/index-importPerson-4.jpg",
-    Introduction: "藏族编织、挑花刺绣工艺代表性传承人",
-    achievement: "杨华珍是藏羌织绣非遗项目的杰出传承人，她长期致力于藏羌织绣技艺的保护、传承与推广，不仅在国内大力开展教学与培训工作，培养了大批青年传承人，还将这一传统艺术推向国际舞台，其作品在日本、美国等地展出，并与国际品牌如植村秀、星巴克等合作推出联名产品，提升了藏羌织绣的国际影响力。",
+    Introduction: "徽墨制作技艺省级传承人",
+    achievement: "汪爱军是泾县徽墨制作技艺的传承人，师从多位制墨名师，精通配方、和料、压模、晾干、描金等全套工艺。他创作的徽墨作品色泽乌黑、质地细腻，多次获得省级工艺美术大奖。",
   },
 ]
 
 const positionArr = [
   {
     id: 1,
-    name: "成都",
-    case: "成都是欣赏川剧的最佳地点之一，这里有许多剧院定期演出川剧，尤其是变脸等特色表演。",
+    name: "中国宣纸文化园",
+    case: "国家4A级景区，是了解宣纸制作技艺的最佳场所，可以亲身体验宣纸制作的全过程。",
     imgUrl: "imgs/index-img/index-position-1.jpg",
 
 
   },
   {
     id: 2,
-    name: " 阿坝藏族羌族自治州",
-    case: "这里是羌族文化的中心地带，羌族刺绣以其独特的图案和色彩而闻名。",
+    name: "桃花潭景区",
+    case: "因李白诗句'桃花潭水深千尺，不及汪伦送我情'而闻名，是皖南著名的文化旅游胜地。",
     imgUrl: "imgs/index-img/index-position-2.jpg",
 
   },
   {
     id: 3,
-    name: "乐山市",
-    case: "峨眉山不仅是佛教圣地，也是峨眉武术的发源地。游客可以在峨眉山体验到正宗的武术课程。",
+    name: "查济古村",
+    case: "中国历史文化名村，保存有大量明清古建筑，是徽派建筑的杰出代表。",
     imgUrl: "imgs/index-img/index-position-3.jpg",
   },
   {
     id: 4,
-    name: "绵阳市",
-    case: "平武县以其精美的剪纸艺术著称，反映了当地人民的生活习俗和审美情趣。",
+    name: "黄田古村",
+    case: "国家级历史文化名村，以其独特的徽派建筑和深厚的文化底蕴著称。",
     imgUrl: "imgs/index-img/index-position-4.jpg",
   },
   {
     id: 5,
-    name: " 德阳市",
-    case: "绵竹是中国四大年画产地之一，其年画以鲜艳的颜色和吉祥的图案深受人们喜爱。",
+    name: "宣笔制作基地",
+    case: "泾县宣笔制作技艺的传承地，可以观摩宣笔制作工艺，体验文房四宝文化。",
     imgUrl: "imgs/index-img/index-position-5.jpg",
   },
   {
     id: 6,
-    name: "凉山彝族自治州",
-    case: "这是彝族最重要的传统节日之一，在每年农历六月二十四日举行，活动包括祭祀、歌舞、赛马等丰富多彩的内容。",
+    name: "月亮湾景区",
+    case: "皖南著名的自然风景区，山水相依、风光旖旎，是体验泾县自然风光的绝佳去处。",
     imgUrl: "imgs/index-img/index-position-6.jpg",
   },
 ]
@@ -379,17 +369,19 @@ const positionArr = [
 
 /*首页轮播图样式*/
 .carousel-wrapper {
-  display: flex;
   width: 100%;
-  justify-content: center;
-  align-items: center;
-
+  overflow: hidden; /* 防止任何子元素溢出 */
 }
 
 .full-width-carousel {
   width: 100%;
-  height: 780px;
-  position: relative;
+}
+
+.carousel-image {
+  display: block; /* 去除 img 标签底部的默认几像素留白 */
+  width: 100%;
+  height: 100%; /* 跟随 el-carousel 的 780px 高度 */
+  object-fit: cover; /* 保证图片铺满不留白 */
 }
 
 .carousel-item {
@@ -397,11 +389,128 @@ const positionArr = [
   height: 820px;
 }
 
-.carousel-image {
+/* 文化代表 */
+.cultural-reps-section {
+  padding: 60px 24px;
+  background-color: #fdfaf8; /* A slightly warmer paper-like texture */
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 3rem; /* 48px */
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  color: var(--ink-main);
+  font-family: '华文新魏', 'STXinwei', serif;
+}
+
+.section-subtitle {
+  font-size: 1.25rem; /* 20px */
+  font-weight: bold;
+  margin: 0 0 48px 0;
+  padding: 0;
+  color: var(--ink-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.reps-grid {
+  justify-content: center;
+}
+
+.rep-card {
+  --el-card-padding: 0;
+  border: 1px solid #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--paper-bg);
+}
+
+.rep-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.rep-card-image-container {
   width: 100%;
-  height: 780px;
+  padding-top: 66.66%; /* 3:2 Aspect Ratio */
+  position: relative;
+  overflow: hidden;
+}
+
+.rep-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
+
+.rep-card .el-card__body {
+  padding: 20px;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.rep-card-title {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink-main);
+}
+
+.rep-card-content {
+  font-size: 0.9rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 52px; /* Approx 3 lines */
+}
+
+.rep-card .el-card__footer {
+  padding: 15px 20px;
+  border-top: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+
+.rep-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-stats {
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  display: flex;
+  gap: 15px;
+}
+
+.rep-card .el-button--warning.is-plain {
+  color: var(--stamp-red);
+  border-color: var(--stamp-red);
+  background: transparent;
+}
+
+.rep-card .el-button--warning.is-plain:hover {
+  background: var(--stamp-red);
+  color: white;
+}
+
 
 /*part3样式*/
 .el-carousel__item:nth-child(2n) {
