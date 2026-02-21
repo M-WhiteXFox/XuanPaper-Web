@@ -147,11 +147,15 @@ onUnmounted(() => {
 
 /* Header */
 .main-header {
-  background: rgba(253, 250, 245, 0.8);
-  backdrop-filter: blur(8px);
+  background: rgba(253, 250, 245, 0.2);
+  backdrop-filter: blur(5px);
   border-bottom: 1px solid rgba(43, 43, 43, 0.08);
-  position: sticky;
+  
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  
   z-index: 1000;
   height: 72px;
   display: flex;
@@ -227,7 +231,7 @@ onUnmounted(() => {
 
 .main-nav .el-menu-item {
   font-size: 1.05rem;
-  color: var(--ink-light);
+  color: #8f1818;
   background-color: transparent !important;
   padding: 0 8px;
   margin: 0 12px;

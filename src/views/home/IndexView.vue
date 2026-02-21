@@ -2,7 +2,7 @@
 
   <!--  首页轮播图-->
   <div class="carousel-wrapper">
-    <el-carousel height="780px" :interval="5000" arrow="hover" class="full-width-carousel">
+    <el-carousel height="100vh" :interval="5000" arrow="hover" class="full-width-carousel">
       <el-carousel-item v-for="item in carouselImgArr" :key="item.id">
         <img :src="item.imgUrl" alt="" class="carousel-image"/>
       </el-carousel-item>
@@ -58,19 +58,15 @@
             <h4 style="margin: 13px 0 0 0;">{{ item.Introduction }}</h4>
             <p style="float: left;font-size: 12px;line-height: 22px;">{{ item.achievement }}</p>
           </div>
-          <div style="width: 100px;height: 100px;margin: 10px 20px 0 0;">
-            <img :src="item.imgUrl" alt="" style="width: 100px;height: 100px;border-radius: 50px;">
+          <div style="width: 128px;height: 100px;margin: 10px 15px 0 0;">
+            <img :src="item.imgUrl" alt="" style="width: 100%;height: 100%;border-radius: 8px;object-fit: cover;">
           </div>
 
           <div style="width: 150px;height: 90px;background-color: #ffffff;margin-left: -30px;">
             <p style="margin:0;padding: 10px 0; font-size: 24px;font-weight: bold;">{{ item.name }}</p>
-            <p style="margin:0;font-size: 15px">{{ item.age }} 岁</p>
           </div>
         </el-card>
       </div>
-      <el-button style="margin-top: 30px;width: 105px;height: 50px;font-size: 18px;" size="large" type="warning">
-        了解更多
-      </el-button>
     </div>
 
   </div>
@@ -287,36 +283,37 @@ const newsImgArr = [
 const importantPersonArr = [
   {
     id: 1,
-    name: "曹光华",
-    age: 68,
-    imgUrl: "imgs/index-img/index-importPerson-1.jpg",
-    Introduction: "宣纸制作技艺国家级传承人",
-    achievement: "曹光华是中国宣纸股份有限公司的技术骨干，从事宣纸制作40余年，精通宣纸生产的各道工序，尤其擅长捞纸技艺。他参与研制的多种特种宣纸获得国家专利，为宣纸制作技艺的传承与创新做出了重要贡献。",
-
-  },
-  {
-    id: 2,
     name: "邢春荣",
     age: 62,
-    imgUrl: "imgs/index-img/index-importPerson-2.jpg",
+    imgUrl: "imgs/index-img/index-importPerson-2.png",
     Introduction: "宣纸制作技艺国家级传承人",
     achievement: "邢春荣是泾县宣纸制作技艺的杰出代表，长期从事宣纸生产和技艺传承工作。她精通晒纸、剪纸等核心工艺，培养了大批青年技术人才，为宣纸文化的保护和传承做出了突出贡献。",
     achievement: "1959年9月进入成都工艺美术技校蜀绣班学习，师从乔子平、彭永兴、肖福兴、毛成武、胡云生、张万清、黄炳成、刘绍云等，因聪慧伶俐、勤奋好学深得老师赏识并得真传。几十年来，她积累了丰富的实践经验和理论知识，具有很高的专业技术，绣制了不少优秀作品。",
   },
   {
+    id: 2,
+    name: "曹光华",
+    age: 68,
+    imgUrl: "imgs/index-img/index-importPerson-1.png",
+    Introduction: "宣纸制作技艺国家级传承人",
+    achievement: "曹光华是中国宣纸股份有限公司的技术骨干，从事宣纸制作40余年，精通宣纸生产的各道工序，尤其擅长捞纸技艺。他参与研制的多种特种宣纸获得国家专利，为宣纸制作技艺的传承与创新做出了重要贡献。",
+
+  },
+
+  {
     id: 3,
-    name: "周美洪",
+    name: "郑志香",
     age: 70,
-    imgUrl: "imgs/index-img/index-importPerson-3.jpg",
+    imgUrl: "imgs/index-img/index-importPerson-3.png",
     Introduction: "宣笔制作技艺省级传承人",
     achievement: "周美洪是泾县宣笔制作的代表性人物，从事宣笔制作50余年，精通选毫、配料、制杆等全部工序。他制作的宣笔具有尖、齐、圆、健四德，深受书画家青睐，多次在全国工艺美术展览中获奖。",
     achievement: "陈云华从事竹编艺术的开发、研究四十余载，由他独创的\"单色双面隐形\"竹编艺术享誉海内外，被誉为精品中的精品，艺术中的艺术。1984年他将竹编书画艺术由最初的坐标编织法改进深化为看图编织法，为青神竹编的发展作出了杰出的贡献 。",
   },
   {
     id: 4,
-    name: "汪爱军",
+    name: "罗鸣",
     age: 55,
-    imgUrl: "imgs/index-img/index-importPerson-4.jpg",
+    imgUrl: "imgs/index-img/index-importPerson-4.png",
     Introduction: "徽墨制作技艺省级传承人",
     achievement: "汪爱军是泾县徽墨制作技艺的传承人，师从多位制墨名师，精通配方、和料、压模、晾干、描金等全套工艺。他创作的徽墨作品色泽乌黑、质地细腻，多次获得省级工艺美术大奖。",
   },
