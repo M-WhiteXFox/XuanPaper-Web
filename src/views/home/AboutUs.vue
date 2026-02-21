@@ -199,7 +199,6 @@ import {
   Message,
   Clock,
   ChatDotRound,
-  Wechat,
   VideoCamera,
   Headset
 } from '@element-plus/icons-vue'
