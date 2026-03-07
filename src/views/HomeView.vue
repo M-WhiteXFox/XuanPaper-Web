@@ -19,6 +19,7 @@
               router
           >
             <el-menu-item index="/">首 页</el-menu-item>
+            <el-menu-item index="/reading">阅读</el-menu-item>
             <el-menu-item index="/travel_guide">旅游指南</el-menu-item>
             <el-menu-item index="/cultural_experience">文化体验</el-menu-item>
             <el-menu-item index="/about_us">关于我们</el-menu-item>
@@ -53,6 +54,7 @@
           router
       >
         <el-menu-item index="/">首 页</el-menu-item>
+        <el-menu-item index="/reading">阅读</el-menu-item>
         <el-menu-item index="/travel_guide">旅游指南</el-menu-item>
         <el-menu-item index="/cultural_experience">文化体验</el-menu-item>
         <el-menu-item index="/about_us">关于我们</el-menu-item>

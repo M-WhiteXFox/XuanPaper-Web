@@ -11,6 +11,8 @@ const routes = [
     children: [
       // 首页
       { path: 'index', component: () => import('../views/home/IndexView.vue') },
+      // 阅读页面
+      { path: 'reading', component: () => import('../views/home/ReadingView.vue') },
       // 文化体验
       { path: 'cultural_experience', component: () => import('../views/home/CulturalExperience.vue') },
       // 旅游指南
